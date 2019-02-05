@@ -1,80 +1,46 @@
 "use strict";
 
-class BadMarkerState{
-  constructor(problem){
-    this.problem=problem;
-  }
+class BadMarkerState {
+    constructor(problem) {
+        this.problem=problem;
+    }
 }
 
-
-class Marker{
-  constructor(color){
-    console.log("constructed marker");
-    this._color = color;
-    this._capped=true;
-  }
-  draw(){
-    if (! this._capped){
-      console.log("drawing in "+this.color);
-    }else{
-      console.log(false)
-      throw new BadMarkerState("drawing with capped marker is bad");
+class Marker {
+    constructor(color) {
+        console.log("constructed marker");
+        this._color = color;
+        this._capped = true;
     }
-  }
 
-  get color(){
-    return this._color;
-  }
-
-  get capped(){
-    return this._capped;
-  }
-
-  set capped(value){
-    if (typeof value == "boolean"){
-      this._capped = value;
-    }else{
-        throw new BadMarkerState("capped must be true or false")
+    draw() {
+        if (!this._capped) {
+           console.log("drawing in " + this._color);
+        } else {
+            throw Marker.BAD_MARKER_CAPPED_DRAW;
+        }
     }
-  }
-}
-class MarkerTest {
-  blackMarker() {
-    return new Marker("black")
-  }
-  redMarker(){
-    return new Marker("red")
-  }
 
-  testDrawCappedBad() {
-    var ok = false;
-    try{
-      var black = this.blackMarker();
-      black.draw();
-    }catch(err){
-      ok = true;
+    get color() {
+        return this._color;
     }
-    if (!ok){throw "bad";}
 
-  }
-  testDrawUncappedOk(){
-    var red = this.redMarker();
-    red.capped=false;
-    red.draw();
-  }
-
-  testIsBlackMarkerBlack(){
-    var black = this.blackMarker();
-    if (black.color !== "black"){
-      throw "bad";
+    get capped() {
+        return this._capped;
     }
-  }
-  testAll(){
-    this.testDrawCappedBad();
-    this.testDrawUncappedOk();
-    this.testIsBlackMarkerBlack();
-  }
+
+    set capped(value) {
+        if (typeof value == "boolean") {
+            this._capped = value;
+        } else {
+            throw Marker.BAD_MARKER_CAPPED_INVALID;
+        }
+    }
 }
 
-var markerTest = new MarkerTest();
-markerTest.testAll();
+Marker.BAD_MARKER_CAPPED_DRAW = new BadMarkerState("drawing with capped marker is bad");
+Marker.BAD_MARKER_CAPPED_INVALID = new BadMarkerState("capped must be true or false");
+
+
+exports.Marker = Marker;
+exports.BadMarkerState = BadMarkerState;
