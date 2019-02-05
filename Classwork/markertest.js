@@ -1,4 +1,5 @@
 var assert = require('assert');
+var chai = require('chai');
 var marker = require('marker');
 
 describe('Marker', function() {
