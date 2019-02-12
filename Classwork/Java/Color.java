@@ -1,15 +1,18 @@
-
-
-package com.github.ndbellew.marker;
-
 /*
-*
-*  @Author ndbellew
-*/
-public enum Color{
-  RED,
-  GREEN,
-  BLUE,
-  BROWN,
-  BLACK
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.github.wmacevoy.marker;
+
+/**
+ *
+ * @author ndbellew
+ */
+public enum  Color {
+    RED,
+    GREEN,
+    BLUE,
+    BROWN,
+    BLACK
 }

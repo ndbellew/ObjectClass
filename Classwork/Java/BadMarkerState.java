@@ -1,21 +1,25 @@
-
-
-package com.github.ndbellew.marker;
 /*
-*
-*  @Author ndbellew
-*/
-public class BadMarkerstate extends Throwable{
-  String problem;
-  BadMarkerState(String problem){
-    this.problem = problem;
-  }
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.github.wmacevoy.marker;
 
-  public String getProblem() {
-    return problem;
-  }
+/**
+ *
+ * @author ndbellew
+ */
+public class BadMarkerState extends Exception {
+    private String problem;
+    BadMarkerState(String problem) {
+        this.problem = problem;
+    }
 
-  public void setProblem(String problem){
-    this.problem = problem;
-  }
+    public String getProblem() {
+        return problem;
+    }
+
+    public void setProblem(String problem) {
+        this.problem = problem;
+    }
 }
