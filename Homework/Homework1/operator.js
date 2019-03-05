@@ -7,20 +7,48 @@ class BadOperatorState{
 }
 
 class Operator {
-  constructor(ID, Location){
-    this.ID = ID;
+  constructor(Location, PhoneActive){
     this.Location=Location;
+    this.PhoneActive=PhoneActive;
     console.log("Constructed Operator")
-  }
-  get id(){
-    return this.ID;
-  }
+    }
+    makeCall(CurrentLocation, DestinationLocation){
+      StartCall();
+      location(DestinationLocation);
+      console.log("Call established to location" + DestinationLocation);
+      console.log("Call Completed");
+      EndCall();
+      location(CurrentLocation);
+
+    }
+    EndCall(){
+      if (this.PhoneActive){
+        this.PhoneActive=False;
+        console.log("Phone call has ended")}
+      else{
+        throw Operator.CALL_STATUS_CHANGE_FAIL
+      }
+
+    }
+    StartCall(){
+      if (!this.PhoneActive){
+        this.PhoneActive=True;
+        console.log("Phone call has started")
+      }
+      else{
+        throw Operator.CALL_STATUS_CHANGE_FAIL
+      }
+
+    }
   get location(){
-    return this.location;
+    return this.Location;
+  }
+  set PhoneActive(value){
+    this.PhoneActive=value;
   }
   set location(value){
     if(typeof value =="string"){
-      this.location=value;
+      this.Location=value;
     }
     else{
       throw Operator.UNREAL_LOCATION;
@@ -28,33 +56,8 @@ class Operator {
   }
 }
 Operator.UNREAL_LOCATION = new BadOperatorState("Location that was chosen is not in correct format");
+Operator.CALL_STATUS_CHANGE_FAIL = new BadOperatorState("Phone call status could not change because it was already in the state it was attempting to change to.");
 
-Op1 = new Operator("0001", 1);
-Op2 = new Operator("0002", 2);
-Op3 = new Operator("0003", 3);
-Op4 = new Operator("0004", 4);
-operators = [Op1, Op2, Op3, Op4];
-//Setup switch statement for current call, check if call is going to same location so operator doesnt do much
-//if not in same area have it search for right area then switch to each operator that would take call.
-//then setup a test to make sure it works
-//finally figure how to create a test in test document.
-function switchOperator(DLocation){
-  if(parseInt(operators[DLocation-1].ID,10)<DLocation){
-    console.log("Switched to operator "+operators[DLocation].ID)
-    return switchOperator(DLocation+1)
-  }
-  else if (parseInt(operators[DLocation-1].ID,10)>DLocation) {
-    console.log("Switched to operator "+operators[DLocation-1].ID)
-    return switchOperator(DLocation-1)
-  }
-  else{
-    console.log("Call connected through operator "+operators[DLocation].ID)
-  }
-}
-function makeCall(CurrentLocation, DestinationLocation){
-    //make the initial call
-  }
-}
 
 exports.Operator = Operator;
 exports.BadOperatorState = BadOperatorState;
