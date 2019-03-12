@@ -7,7 +7,8 @@ class BadOperatorState{
 }
 
 class Operator {
-  constructor(Location, PhoneActive){
+  constructor(Location, PhoneActive, PhoneID){
+    this.PhoneID=PhoneID;
     this.Location=Location;
     this.PhoneActive=PhoneActive;
     console.log("Constructed Operator")
