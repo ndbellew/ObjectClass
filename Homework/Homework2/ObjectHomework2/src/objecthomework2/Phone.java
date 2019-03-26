@@ -7,7 +7,7 @@
 package objecthomework2;
 
 /**
- *
+ *I cannot figure out how to do tests in netbeans. So idk what to do.
  * @author ndbellew
  */
 public class Phone {
