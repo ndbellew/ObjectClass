@@ -56,7 +56,7 @@ namespace door{
         }
       }
 
-      Marker::~Marker() {
+      Door::~Door() {
         std::cout <<"Destructing Door" << ((void*) this) <<std::endl;
       }
 
