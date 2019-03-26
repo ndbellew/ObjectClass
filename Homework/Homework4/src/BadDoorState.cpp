@@ -1,4 +1,4 @@
-
+#include "BadDoorState.h"
 namespace door{
 
   BadDoorState(const std::string &_problem)
