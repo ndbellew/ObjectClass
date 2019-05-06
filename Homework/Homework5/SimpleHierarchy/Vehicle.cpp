@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "Vehicle.h"
 using namespace vehicle;
 
@@ -16,6 +17,9 @@ void Vehicle::setColor(string _Color){
 void Vehicle::setTopSpeed(int _TopSpeed){
   TopSpeed = _TopSpeed;
 }
+void Vehicle::setInUse(bool _InUse){
+  InUse = _InUse;
+}
 string Vehicle::getName() const{
   return Name;
 }
@@ -27,4 +31,13 @@ string Vehicle::getTopSpeed() const{
 }
 bool Vehicle::IsInUse() const{
   return InUse;
+}
+void Vehicle::ToggleVehicleUse(){
+  if (IsInUse()){
+    std::cout<<"Finished Using Vehicle\n";
+    setInUse(false);
+  }else{
+    std::cout<<"Using vehicle\n";
+    setInUse(true);
+  }
 }
