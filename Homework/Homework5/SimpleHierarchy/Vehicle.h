@@ -1,23 +1,16 @@
 #include <iomanip>
 #include <memory>
 #include <string>
+#include "Color.h"
 
 namespace vehicle{
 
   class Vehicle {
-    private: string Name;
-    private: string Color;
-    private: int TopSpeed;
     private: bool InUse = false;
     public: Vehicle(string _Name, string _Color, int _TopSpeed);
-    public: void setName(string _Name);
-    public: void setColor(string _Color);
-    public: void setTopSpeed(int _TopSpeed);
     public: bool setInUse(bool _InUse);
-    public: string getName() const;
-    public: string getcolor() const;
-    public: string getTopSpeed() const;
+    public: Color getcolor() const;
     public: bool IsInUse() const;
-    public: void ToggleVehicleUse();
+    public: void ToggleUse() const=0;
   };
 }
