@@ -40,6 +40,10 @@ namespace vehicle{
     std::cout<<"We are driving a car!!\n";
   }
 
+  std::shared_ptr<Vehicle> Car::clone() const {
+    Car *copy = new Car(getName(), getColor());
+    return std::shared_ptr<Vehicle>(copy);
+  }
   Car::~Car(){
     std::cout<<"Deconstructing that sweet car of yours\n";
   }

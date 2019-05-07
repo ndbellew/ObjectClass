@@ -32,4 +32,11 @@ namespace vehicle {
   void Bike::Drive() const{
     std::cout<<"Time to Drive this bad Bike\n";
   }
+  std::shared_ptr<Vehicle> Bike::clone() const {
+    Bike *copy = new Bike(getName(), getColor());
+    return std::shared_ptr<Vehicle>(copy);
+  }
+  Bike::~Bike(){
+    std::cout<<"Deconstructing Bike\n";
+  }
 }

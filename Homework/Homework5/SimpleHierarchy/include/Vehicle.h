@@ -1,6 +1,5 @@
-#include <iomanip>
+#pragma once
 #include <memory>
-#include <string>
 #include "../include/Color.h"
 
 namespace vehicle{
@@ -10,7 +9,8 @@ namespace vehicle{
     public: Vehicle(Color _Color=Color::GREEN);
     public: Color getColor() const;
     public: void setColor(Color _Color);
-    public: void Drive();
+    public: void Drive() const;
+    public: std::shared_ptr<Vehicle> clone() const;
     public: ~Vehicle();
   };
 }

@@ -16,5 +16,7 @@ namespace vehicle{
     public: void setName(std::string _Name);
     public: void ToggleBrake(bool _Brake);
     public: void Drive() const;
+    public: std::shared_ptr<Vehicle> clone() const;
+    public: ~Bike();
   };
 }

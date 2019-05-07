@@ -19,6 +19,7 @@ namespace vehicle{
   public: void setName(std::string _Name);
   public: void setType(std::string _Type);
   public: void Drive() const;
+  public: std::shared_ptr<Vehicle> clone() const;
   public: ~Car();
   };
 }
