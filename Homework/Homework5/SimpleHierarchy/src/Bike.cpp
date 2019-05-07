@@ -1,5 +1,5 @@
 #include <iomanip>
-#include "Bike.h"
+#include "../include/Bike.h"
 
 namespace vehicle {
   Bike::Bike(std::string _Name, Color _Color)
@@ -11,11 +11,11 @@ namespace vehicle {
     return Brake;
   }
 
-  string Bike::getName() const {
+  std::string Bike::getName() const {
     return Name;
   }
 
-  void Bike::setName(string _Name){
+  void Bike::setName(std::string _Name){
     Name=_Name;
   }
 
@@ -32,3 +32,4 @@ namespace vehicle {
   void Bike::Drive() const{
     std::cout<<"Time to Drive this bad Bike\n";
   }
+}

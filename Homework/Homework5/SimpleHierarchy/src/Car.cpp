@@ -1,12 +1,13 @@
-#pragma once
-#include "Color.h"
-#include "Car.h"
+#include "../include/Color.h"
+#include "../include/Car.h"
+#include "../include/Bike.h"
+#include <string>
 
 namespace vehicle{
 
-  Car::Car(int _TopSpeed, string _Name, std::string _Type, Color _Color)
+  Car::Car(int _TopSpeed, std::string _Name, std::string _Type, Color _Color)
   : Bike(_Name, _Color), TopSpeed(_TopSpeed), Name(_Name){
-    std::cout<<"Creating car with color "<< getColor() << ", a type "<<getType();
+    std::cout<<"Creating car with color "<< _Color << ", a type "<<getType();
     std::cout<<", a TopSpeed of "<<getTopSpeed()<<", and the name of "<<getName();
     std::cout<<std::endl;
   }
@@ -27,11 +28,11 @@ namespace vehicle{
     TopSpeed=_TopSpeed;
   }
 
-  void Car::setName(string _Name){
+  void Car::setName(std::string _Name){
     Name = _Name;
   }
 
-  void Car::setType(string _Type){
+  void Car::setType(std::string _Type){
     Type = _Type;
   }
 

@@ -3,11 +3,11 @@
 #include <iomanip>
 #include <string>
 #include "Color.h"
-#include "Bike.h"
+#include "../include/Bike.h"
 
 namespace vehicle{
 
-  class Car{
+  class Car : public Bike{
   private: int TopSpeed;
   private: std::string Name;
   private: std::string Type;
