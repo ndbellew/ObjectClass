@@ -4,7 +4,7 @@
 
 namespace vehicle{
 
-  Car::Car(int _TopSpeed, string _Name, string _Type, Color _Color)
+  Car::Car(int _TopSpeed, string _Name, std::string _Type, Color _Color)
   : Bike(_Name, _Color), TopSpeed(_TopSpeed), Name(_Name){
     std::cout<<"Creating car with color "<< getColor() << ", a type "<<getType();
     std::cout<<", a TopSpeed of "<<getTopSpeed()<<", and the name of "<<getName();
@@ -15,11 +15,11 @@ namespace vehicle{
     return TopSpeed;
   }
 
-  string Car::getName() const{
+  std::string Car::getName() const{
     return Name;
   }
 
-  string Car::getType() const {
+  std::string Car::getType() const {
     return Type;
   }
 

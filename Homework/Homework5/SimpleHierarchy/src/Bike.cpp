@@ -2,7 +2,7 @@
 #include "Bike.h"
 
 namespace vehicle {
-  Bike::Bike(string _Name, string _Color)
+  Bike::Bike(std::string _Name, Color _Color)
     : Vehicle(_Color), Name(_Name){
       std::cout<< "Bike created with a nice tint of " << getColor() << std::endl;
     }

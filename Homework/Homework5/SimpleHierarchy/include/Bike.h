@@ -9,12 +9,12 @@ namespace vehicle{
 
   class Bike : public Vehicle {
     private: bool Brake = false;
-    private: string Name;
-    public: Bike(string _Name, Color _Color);
+    private: std::string Name;
+    public: Bike(std::string _Name, Color _Color);
     public: bool IsBrakeInUse() const;
-    public: string getName() const;
-    public: void setName(string _Name);
+    public: std::string getName() const;
+    public: void setName(std::string _Name);
     public: void ToggleBrake(bool _Brake);
-    public: void Drive() const override;
+    public: void Drive() const;
   };
 }
