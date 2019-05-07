@@ -6,11 +6,11 @@
 namespace vehicle{
 
   class Vehicle {
-    private: bool InUse = false;
-    public: Vehicle(string _Name, string _Color, int _TopSpeed);
-    public: bool setInUse(bool _InUse);
-    public: Color getcolor() const;
-    public: bool IsInUse() const;
-    public: void ToggleUse() const=0;
+    private: Color _Color
+    public: Vehicle(Color _Color=Color::GREEN);
+    public: Color getColor() const;
+    public: void setColor(Color _Color);
+    public: void Drive();
+    public: ~Vehicle();
   };
 }
