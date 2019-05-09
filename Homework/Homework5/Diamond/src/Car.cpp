@@ -1,12 +1,12 @@
 #include "../include/Color.h"
 #include "../include/Car.h"
-#include "../include/Bike.h"
+#include "../include/Carriage.h"
 #include <string>
 
 namespace vehicle{
 
   Car::Car(int _TopSpeed, std::string _Name, std::string _Type, Color _Color)
-  : Vehicle(_Color), Type(_Type), TopSpeed(_TopSpeed), Name(_Name){
+  : Carriage(_Name, _Color), Type(_Type), TopSpeed(_TopSpeed) {
     std::cout<<"Creating car with color "<< _Color << ", a type "<<getType();
     std::cout<<", a TopSpeed of "<<getTopSpeed()<<", and the name of "<<getName();
     std::cout<<std::endl;
@@ -16,9 +16,6 @@ namespace vehicle{
     return TopSpeed;
   }
 
-  std::string Car::getName() const{
-    return Name;
-  }
 
   std::string Car::getType() const {
     return Type;
@@ -26,10 +23,6 @@ namespace vehicle{
 
   void Car::setTopSpeed(int _TopSpeed){
     TopSpeed=_TopSpeed;
-  }
-
-  void Car::setName(std::string _Name){
-    Name = _Name;
   }
 
   void Car::setType(std::string _Type){
@@ -41,7 +34,7 @@ namespace vehicle{
   }
 
   std::shared_ptr<Vehicle> Car::clone() const {
-    Car *copy = new Car(getName(), getColor());
+    Car *copy = new Car(getTopSpeed(), getName(), getType(), getColor());
     return std::shared_ptr<Vehicle>(copy);
   }
   Car::~Car(){
