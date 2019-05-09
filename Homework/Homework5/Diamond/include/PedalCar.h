@@ -2,8 +2,8 @@
 #include <memory>
 #include <iomanip>
 #include "Color.h"
-#include "Motorcycle.h"
-#include "Car.h"
+#include "Bike.h"
+#include "Carriage.h"
 
 namspace vehicle {
   class PedalCar : virtual public Bike, virtual public Carriage {
