@@ -20,5 +20,5 @@ lib/libvehicle.so : tmp/Car.o tmp/Bike.o tmp/Vehicle.o tmp/Color.o
 tmp/main.o : src/main.cpp include/Vehicle.h include/Bike.h include/Car.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-bin/pusher : lib/libvehicle.so
-				$(CXX) $(CXXFLAGS) -c -o $@ $^ -lpthread
+bin/vehicle : tmp/main.o lib/libvehicle.so
+				$(CXX) $(CXXFLAGS) -o $@ $^
