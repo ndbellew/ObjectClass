@@ -6,7 +6,7 @@
 
 namespace vehicle{
 
-  class Carriage: public Vehicle {
+  class Carriage: virtual public Vehicle {
     private: std::string Name;
     private: int HorsePower;
     private: int WheelNum;

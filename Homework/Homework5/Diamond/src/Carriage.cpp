@@ -36,7 +36,7 @@ namespace vehicle{
     }
 
     std::shared_ptr<Vehicle> Carriage::clone() const{
-      Carriage *copy = new Carriage(getName(), getColor());
+      Carriage *copy = new Carriage(getName(), getColor(), getHorsePower(), getWheelNum());
       return std::shared_ptr<Vehicle>(copy);
     }
 

@@ -7,7 +7,7 @@
 
 namespace vehicle{
 
-  class Bike : public Vehicle {
+  class Bike : virtual public Vehicle {
     private: bool Brake = false;
     private: std::string Name;
     private: bool KickstandUp;

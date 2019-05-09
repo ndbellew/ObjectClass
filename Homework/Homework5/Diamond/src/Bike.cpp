@@ -47,7 +47,7 @@ namespace vehicle {
     std::cout<<"Time to Drive this bad Bike\n";
   }
   std::shared_ptr<Vehicle> Bike::clone() const {
-    Bike *copy = new Bike(getName(), getColor());
+    Bike *copy = new Bike(getName(), getColor(), isKickstandUp(), IsBrakeInUse());
     return std::shared_ptr<Vehicle>(copy);
   }
   Bike::~Bike(){

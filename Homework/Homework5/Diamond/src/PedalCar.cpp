@@ -28,6 +28,11 @@ namespace vehicle{
 
     }
 
+    std::shared_ptr<Vehicle> PedalCar::clone() const{
+      PedalCar *copy = new PedalCar(getName(), getColor(), getHorsePower(), getWheelNum(), getFrontWheels(), getBackWheels(), isKickstandUp(), IsBrakeInUse());
+      return std::shared_ptr<Vehicle>(copy);
+    }
+
     PedalCar::~PedalCar(){
       std::cout<<"Now Deconstructing Swag PedalCar\n";
     }

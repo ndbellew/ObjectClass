@@ -15,6 +15,7 @@ namspace vehicle {
     public: void setFrontWheels(int _FrontWheels);
     public: void setBackWheels(int _Backwheels);
     public: void Drive() const;
+    public: std::shared_ptr<Vehicle> clone() const;
     public: ~PedalCar();//need to work on this part.
   };
 }
