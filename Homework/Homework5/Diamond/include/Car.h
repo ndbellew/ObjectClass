@@ -7,7 +7,7 @@
 
 namespace vehicle{
 
-  class Car : public Bike{
+  class Car : public Vehicle {
   private: int TopSpeed;
   private: std::string Name;
   private: std::string Type;
