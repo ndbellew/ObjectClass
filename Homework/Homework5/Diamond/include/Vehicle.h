@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "../include/Color.h"
+#include "Color.h"
 
 namespace vehicle{
 

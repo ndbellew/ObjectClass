@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <string>
 #include "Color.h"
-#include "../include/Bike.h"
+#include "Bike.h"
 
 namespace vehicle{
 

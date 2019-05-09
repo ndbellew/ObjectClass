@@ -2,8 +2,8 @@
 #include "../include/Bike.h"
 
 namespace vehicle {
-  Bike::Bike(std::string _Name, Color _Color)
-    : Vehicle(_Color), Name(_Name){
+  Bike::Bike(std::string _Name, Color _Color, bool _KickstandUp, bool _Brake)
+    : Vehicle(_Color), Name(_Name), KickstandUp(_KickstandUp), Brake(_Brake){
       std::cout<< "Bike created with a nice tint of " << getColor() << std::endl;
     }
 
@@ -15,17 +15,31 @@ namespace vehicle {
     return Name;
   }
 
+  bool Bike::isKickstandUp() const{
+    return KickstandUp;
+  }
+
   void Bike::setName(std::string _Name){
     Name=_Name;
   }
 
-  void Bike::ToggleBrake(bool _Brake){
-    if (IsBrakeInUse()){
+  void Bike::ToggleBrake(){
+    if (Brake){
       std::cout<<"Brake is no longer in use.\n";
       Brake = false;
     }else{
       std::cout<<"Brake is now being used\n.";
       Brake = true;
+    }
+
+    void Bike::ToggleKickstand(){
+      if (KickstandUp){
+        std::cout<<"Brake is no longer in use.\n";
+        Brake = false;
+      }else{
+        std::cout<<"Brake is now being used\n.";
+        Brake = true;
+      }
     }
   }
 

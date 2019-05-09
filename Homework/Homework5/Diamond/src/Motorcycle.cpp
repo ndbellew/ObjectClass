@@ -11,7 +11,7 @@ namespace vehicle{
     }
 
     int Motorcycle::getTopSpeed() const{
-      return TopeSpeed;
+      return TopSpeed;
     }
 
     std::string Motorcycle::getType() const{

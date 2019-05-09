@@ -2,17 +2,23 @@
 #include <memory>
 #include <string>
 #include <Color.h>
-#include "../include/Bike.h"
+#include "Vehicle.h"
 
 namespace vehicle{
 
   class Carriage: public Vehicle {
-  private: std::string Name;
-  public: Carriage(std::string _Name, Color _Color);
-  public: std::string getName() const;
-  public: void setName(std::string Name);
-  public: void Drive() const;
-  public: std::shared_ptr<Vehicle> clone() const;
-  public: ~Carriage();
+    private: std::string Name;
+    private: int HorsePower;
+    private: int WheelNum;
+    public: Carriage(std::string _Name, Color _Color, int _HorsePower, int _WheelNum);
+    public: std::string getName() const;
+    public: int getHorsePower() const;
+    public: int getWheelNum() const;
+    public: void setName(std::string Name);
+    public: void setHorsePower(int _HorsePower);
+    public: void setWheelNum(int _WheelNum);
+    public: void Drive() const;
+    public: std::shared_ptr<Vehicle> clone() const;
+    public: ~Carriage();
   };
 }

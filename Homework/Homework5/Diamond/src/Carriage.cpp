@@ -2,8 +2,8 @@
 #include "../include/Carriage.h"
 
 namespace vehicle{
-  Carriage::Carriage(std::string _Name, Color _Color)
-    : Vehicle(_Color), Name(_Name) {
+  Carriage::Carriage(std::string _Name, Color _Color, int _HorsePower, int _WheelNum)
+    : Vehicle(_Color), Name(_Name), HorsePower(_Horse), WheelNum(_WheelNum) {
       std::cout<<"Carriage created my leige\n";
     }
 
@@ -11,8 +11,24 @@ namespace vehicle{
       return Name;
     }
 
+    int Carriage::getHorsePower() const{
+      return HorsePower;
+    }
+
+    int Carriage::getWheelNum() const{
+      return WheelNum;
+    }
+
     void Carriage::setName(std::string _Name){
       Name=_Name;
+    }
+
+    void Carriage::setHorsePower(int _HorsePower){
+      HorsePower = _HorsePower;
+    }
+
+    void Carriage::setWheelNum(int _WheelNum){
+      WheelNum = _WheelNum;
     }
 
     void Drive() const{
