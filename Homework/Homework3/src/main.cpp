@@ -14,4 +14,5 @@ int main() {
 
 
   delete Oakdoor;
+  return 0;
 }
