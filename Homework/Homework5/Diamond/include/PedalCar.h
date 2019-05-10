@@ -4,6 +4,7 @@
 #include "Color.h"
 #include "Bike.h"
 #include "Carriage.h"
+#include "BadVehicleState.h"
 
 namespace vehicle {
   class PedalCar : virtual public Bike, virtual public Carriage {
@@ -17,5 +18,8 @@ namespace vehicle {
     public: void Drive() const;
     public: std::shared_ptr<Vehicle> clone() const;
     public: ~PedalCar();//need to work on this part.
+
+    public: static const BadVehicleState Not_Enough_Wheels;
+    public: static const BadVehicleState Too_Many_Wheels;
   };
 }

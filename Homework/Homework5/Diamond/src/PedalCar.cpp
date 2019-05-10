@@ -16,15 +16,19 @@ namespace vehicle{
     }
 
     void PedalCar::setFrontWheels(int _FrontWheels){
-      FrontWheels=_FrontWheels;
+        FrontWheels=_FrontWheels;
     }
 
-    void PedalCar::setBackWheels(int _Backwheels){
-      BackWheels=_Backwheels;
+    void PedalCar::setBackWheels(int _BackWheels){
+        BackWheels=_BackWheels;
     }
 
     void PedalCar::Drive() const{
-      std::cout<<"Now driving your sweet swan pedal car!\n";
+      int totalwheels = getFrontWheels()+getBackWheels();
+      if (totalwheels>getWheelNum()) {throw Too_Many_Wheels;}
+      else if (totalwheels<getWheelNum()) {throw Not_Enough_Wheels;}
+      else{
+      std::cout<<"Now driving your sweet swan pedal car!\n";}
 
     }
 
@@ -36,4 +40,7 @@ namespace vehicle{
     PedalCar::~PedalCar(){
       std::cout<<"Now Deconstructing Swag PedalCar\n";
     }
+
+    const BadVehicleState PedalCar::Not_Enough_Wheels("There are not enough wheels on this vehicle, please update the total wheels first");
+    const BadVehicleState PedalCar::Too_Many_Wheels("There are too many wheels on this pedalCar, please update total wheels first.");
 }

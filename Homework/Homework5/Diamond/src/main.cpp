@@ -14,8 +14,8 @@ typedef std::shared_ptr < vehicle::PedalCar > PC;
 int main(){
   std::shared_ptr < Vehicle > BlueVehicle(new Vehicle(BLUE));
   assert(BlueVehicle->getColor() == BLUE);
-  BlueVehicle->Drive();
   std::cout<<"Shared pointer success\n";
+
   C c(new Carriage("Diddle", Color::BRELLO, 3, 16));
   assert(c->getHorsePower() == 3 );
   std::cout<<"getter success\n";
@@ -25,7 +25,7 @@ int main(){
   std::cout<<"Current Wheel Num "<<c->getWheelNum()<<std::endl;
   c->setWheelNum(15);
   assert(c->getWheelNum() == 15);
-  c->Drive();
+
   B SweetBike(new Bike("Diddly", Color::TURQOISE, true, false));
   SweetBike->setKickstand(false);
   assert(SweetBike->isKickstandUp() == false);
@@ -35,7 +35,16 @@ int main(){
   assert(SweetBike->IsBrakeInUse() == true);
   std::cout<<"Alright lets just slow down.\n";
   PC pc(new PedalCar("SteamBoat Willie", Color::TOPAZ, 3, 6, 2, 4, true, false));
-
+  //make sure to properly change the wheels so that it doesnt excede the number.
+  pc->setWheelNum(8);
+  pc->setBackWheels(1);
+  pc->setFrontWheels(7);
+  assert(pc->getWheelNum() == 8);
+  pc->setColor(Color::WHITE);
+  assert(pc->getColor() == Color::WHITE);
+  BlueVehicle->Drive();
+  SweetBike->Drive();
+  c->Drive();
   pc->Drive();
   return 0;
 }

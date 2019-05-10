@@ -25,7 +25,11 @@ namespace vehicle {
 
 
   void Bike::Drive() const{
-    std::cout<<"Time to Drive this bad Bike\n";
+    if (isKickstandUp()){
+      throw KICKSTAND_IS_DOWN;
+    } else  {
+      std::cout<<"Time to Drive this bad Bike\n";
+    }
   }
   std::shared_ptr<Vehicle> Bike::clone() const {
     Bike *copy = new Bike(getName(), getColor(), isKickstandUp(), IsBrakeInUse());

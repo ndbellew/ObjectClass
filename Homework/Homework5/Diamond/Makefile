@@ -8,7 +8,7 @@ tmp/Color.o : src/Color.cpp include/Color.h
 tmp/Vehicle.o : src/Vehicle.cpp include/Vehicle.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-tmp/Bike.o: src/Bike.cpp include/Vehicle.h include/Bike.h include/Color.h
+tmp/Bike.o: src/Bike.cpp include/Vehicle.h include/Bike.h include/Color.h include/BadVehicleState.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 tmp/BadVehicleState.o : src/BadVehicleState.cpp include/BadVehicleState.h
@@ -17,7 +17,7 @@ tmp/BadVehicleState.o : src/BadVehicleState.cpp include/BadVehicleState.h
 tmp/Carriage.o: src/Carriage.cpp include/Vehicle.h include/Carriage.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-tmp/PedalCar.o: src/PedalCar.cpp include/Vehicle.h include/Bike.h include/Carriage.h include/Color.h include/PedalCar.h
+tmp/PedalCar.o: src/PedalCar.cpp include/Vehicle.h include/Bike.h include/Carriage.h include/Color.h include/PedalCar.h include/BadVehicleState.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 lib/libvehicle.so : tmp/Carriage.o tmp/Bike.o tmp/Vehicle.o tmp/Color.o tmp/PedalCar.o tmp/BadVehicleState.o
