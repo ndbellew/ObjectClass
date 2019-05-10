@@ -3,7 +3,7 @@
 
 namespace vehicle {
   Bike::Bike(std::string _Name, Color _Color, bool _KickstandUp, bool _Brake)
-    : Vehicle(_Color), Name(_Name), KickstandUp(_KickstandUp), Brake(_Brake){
+    : Vehicle(_Color, _Name), KickstandUp(_KickstandUp), Brake(_Brake){
       std::cout<< "Bike created with a nice tint of " << getColor() << std::endl;
     }
 
@@ -11,16 +11,8 @@ namespace vehicle {
     return Brake;
   }
 
-  std::string Bike::getName() const {
-    return Name;
-  }
-
   bool Bike::isKickstandUp() const{
     return KickstandUp;
-  }
-
-  void Bike::setName(std::string _Name){
-    Name=_Name;
   }
 
   void Bike::ToggleBrake(){
@@ -42,7 +34,7 @@ namespace vehicle {
         Brake = true;
       }
     }
-  
+
 
   void Bike::Drive() const{
     std::cout<<"Time to Drive this bad Bike\n";

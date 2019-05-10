@@ -15,10 +15,6 @@ namespace vehicle{
       return BackWheels;
     }
 
-    std::string PedalCar::getName() const{
-      return Name;
-    }
-
     void PedalCar::setFrontWheels(int _FrontWheels){
       FrontWheels=_FrontWheels;
     }

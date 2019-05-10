@@ -12,8 +12,6 @@ namespace vehicle {
     public: PedalCar(std::string _Name, Color _Color, int _HorsePower, int _WheelNum, int _FrontWheels, int _BackWheels, bool _KickstandUp=true, bool _Brake=false);
     public: int getFrontWheels() const;
     public: int getBackWheels() const;
-    public: virtual std::string getName() const;
-    public: virtual void setName(std::string _Name);
     public: void setFrontWheels(int _FrontWheels);
     public: void setBackWheels(int _Backwheels);
     public: void Drive() const;
