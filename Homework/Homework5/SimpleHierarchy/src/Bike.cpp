@@ -15,29 +15,21 @@ namespace vehicle {
     return KickstandUp;
   }
 
-  void Bike::ToggleBrake(){
-    if (Brake){
-      std::cout<<"Brake is no longer in use.\n";
-      Brake = false;
-    }else{
-      std::cout<<"Brake is now being used\n.";
-      Brake = true;
-    }
+  void Bike::setBrake(bool _Brake){
+    Brake = _Brake;
   }
 
-    void Bike::ToggleKickstand(){
-      if (KickstandUp){
-        std::cout<<"Brake is no longer in use.\n";
-        Brake = false;
-      }else{
-        std::cout<<"Brake is now being used\n.";
-        Brake = true;
-      }
+    void Bike::setKickstand(bool _Kickstand){
+      KickstandUp = _Kickstand;
     }
 
 
   void Bike::Drive() const{
-    std::cout<<"Time to Drive this bad Bike\n";
+    if (isKickstandUp()){
+      throw KICKSTAND_IS_DOWN;
+    } else  {
+      std::cout<<"Time to Drive this bad Bike\n";
+    }
   }
   std::shared_ptr<Vehicle> Bike::clone() const {
     Bike *copy = new Bike(getName(), getColor(), isKickstandUp(), IsBrakeInUse());
@@ -46,4 +38,6 @@ namespace vehicle {
   Bike::~Bike(){
     std::cout<<"Deconstructing Bike\n";
   }
+
+  const BadVehicleState Bike::KICKSTAND_IS_DOWN("Unable to move with this darn kickstand in the way!");
 }

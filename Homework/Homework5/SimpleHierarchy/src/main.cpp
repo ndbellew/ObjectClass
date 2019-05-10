@@ -26,8 +26,13 @@ int main(){
   c->setWheelNum(15);
   assert(c->getWheelNum() == 15);
   c->Drive();
-  B SweetBike(new Bike("Diddly", Color::TURQOISE, true, true));
-  //may have to rework the toggle in order to test :( this would me you have to add in BadVehicleState class. :(
+  B SweetBike(new Bike("Diddly", Color::TURQOISE, true, false));
+  SweetBike->setKickstand(false);
+  assert(SweetBike->isKickstandUp() == false);
+  std::cout<<"Kick stand is up lets get out there and go fast.";
   SweetBike->Drive();
+  SweetBike->setBrake(true);
+  assert(SweetBike->IsBrakeInUse() == true);
+  std::cout<<"Alright lets just slow down.\n";
   return 0;
 }
