@@ -3,7 +3,7 @@
 
 namespace vehicle{
   Carriage::Carriage(std::string _Name, Color _Color, int _HorsePower, int _WheelNum)
-    : Vehicle(_Color), Name(_Name), HorsePower(_Horse), WheelNum(_WheelNum) {
+    : Vehicle(_Color), Name(_Name), HorsePower(_HorsePower), WheelNum(_WheelNum) {
       std::cout<<"Carriage created my leige\n";
     }
 
@@ -31,7 +31,7 @@ namespace vehicle{
       WheelNum = _WheelNum;
     }
 
-    void Drive() const{
+    void Carriage::Drive() const{
       std::cout<<"My liege, you are now driving a Carriage.\n";
     }
 

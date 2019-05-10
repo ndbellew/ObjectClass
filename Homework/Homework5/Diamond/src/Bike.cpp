@@ -31,6 +31,7 @@ namespace vehicle {
       std::cout<<"Brake is now being used\n.";
       Brake = true;
     }
+  }
 
     void Bike::ToggleKickstand(){
       if (KickstandUp){
@@ -41,7 +42,7 @@ namespace vehicle {
         Brake = true;
       }
     }
-  }
+  
 
   void Bike::Drive() const{
     std::cout<<"Time to Drive this bad Bike\n";

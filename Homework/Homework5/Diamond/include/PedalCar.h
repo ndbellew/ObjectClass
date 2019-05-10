@@ -5,11 +5,11 @@
 #include "Bike.h"
 #include "Carriage.h"
 
-namspace vehicle {
+namespace vehicle {
   class PedalCar : virtual public Bike, virtual public Carriage {
     private: int FrontWheels;
     private:  int BackWheels;
-    public: PedalCar(std::string _Name, Color _Color, int _HorsePower, int _WheelNum, int FrontWheels, int BackWheels, bool _KickstandUp=true, bool _Brake=false);
+    public: PedalCar(std::string _Name, Color _Color, int _HorsePower, int _WheelNum, int _FrontWheels, int _BackWheels, bool _KickstandUp=true, bool _Brake=false);
     public: int getFrontWheels() const;
     public: int getBackWheels() const;
     public: void setFrontWheels(int _FrontWheels);

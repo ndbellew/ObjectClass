@@ -11,7 +11,7 @@ tmp/Vehicle.o : src/Vehicle.cpp include/Vehicle.h include/Color.h
 tmp/Bike.o: src/Bike.cpp include/Vehicle.h include/Bike.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-tmp/Carriage.o: src/Carriage.cpp include/Vehicle.h include/Cariage.h include/Color.h
+tmp/Carriage.o: src/Carriage.cpp include/Vehicle.h include/Carriage.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 tmp/PedalCar.o: src/PedalCar.cpp include/Vehicle.h include/Bike.h include/Carriage.h include/Color.h include/PedalCar.h

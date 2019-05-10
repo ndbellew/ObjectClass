@@ -15,7 +15,7 @@ namespace vehicle {
       case GREY: out << "GREY"; break;
       case GRAY: out << "GRAY"; break;
       case YELLOW: out << "YELLOW"; break;
-      case BRELLOW: out << "BRELLOW"; break;
+      case BRELLO: out << "BRELLO"; break;
         default:
           throw std::logic_error("missing color");
     }

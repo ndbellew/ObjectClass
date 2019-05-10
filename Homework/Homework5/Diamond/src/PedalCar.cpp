@@ -2,8 +2,8 @@
 #include "../include/PedalCar.h"
 
 namespace vehicle{
-  PedalCar::PedalCar(std::string _Name, Color _Color, int _HorsePower, int _WheelNum, int FrontWheels, int _BackWheels, bool _KickstandUp=true, bool _Brake=false);
-    : Bike(_Name, _Color, _KickstandUp, _Brake), Carriage(_Name, _Color, _HorsePower,_WheelNum), FrontWheels(_FrontWheels), BackWheels(_Backwheels){
+  PedalCar::PedalCar(std::string _Name, Color _Color, int _HorsePower, int _WheelNum, int _FrontWheels, int _BackWheels, bool _KickstandUp, bool _Brake)
+    : Bike(_Name, _Color, _KickstandUp, _Brake), Carriage(_Name, _Color, _HorsePower,_WheelNum), FrontWheels(_FrontWheels), BackWheels(_BackWheels){
       std::cout<<"Now creating that yeet Pedal Car\n";
     }
 

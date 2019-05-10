@@ -14,7 +14,7 @@ namespace vehicle{
     public: std::string getName() const;
     public: int getHorsePower() const;
     public: int getWheelNum() const;
-    public: void setName(std::string Name);
+    public: virtual void setName(std::string Name);
     public: void setHorsePower(int _HorsePower);
     public: void setWheelNum(int _WheelNum);
     public: void Drive() const;

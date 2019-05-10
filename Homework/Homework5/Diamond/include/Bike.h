@@ -11,10 +11,9 @@ namespace vehicle{
     private: bool Brake = false;
     private: std::string Name;
     private: bool KickstandUp;
-    private: bool Brake;
     public: Bike(std::string _Name, Color _Color, bool _KickstandUp, bool _Brake);
     public: bool IsBrakeInUse() const;
-    public: std::string getName() const;
+    public: virtual std::string getName() const;
     public: bool isKickstandUp() const;
     public: void setName(std::string _Name);
     public: void ToggleBrake();
