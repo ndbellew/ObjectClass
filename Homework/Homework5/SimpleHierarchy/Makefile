@@ -17,7 +17,7 @@ tmp/BadVehicleState.o : src/BadVehicleState.cpp include/BadVehicleState.h
 tmp/Carriage.o: src/Carriage.cpp include/Vehicle.h include/Carriage.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-lib/libvehicle.so : tmp/Carriage.o tmp/Bike.o tmp/Vehicle.o tmp/Color.o tmp/BadVehicleState.o
+lib/libvehicle.so : tmp/Carriage.o tmp/Bike.o tmp/Vehicle.o tmp/Color.o tmp/BadVehicleState.o 
 				$(CXX) $(CXXFLAGS) -shared -o $@ $^
 
 tmp/main.o : src/main.cpp include/Vehicle.h include/Bike.h include/Carriage.h include/Color.h include/BadVehicleState.h
