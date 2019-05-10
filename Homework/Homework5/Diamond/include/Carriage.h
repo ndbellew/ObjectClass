@@ -11,7 +11,7 @@ namespace vehicle{
     private: int HorsePower;
     private: int WheelNum;
     public: Carriage(std::string _Name, Color _Color, int _HorsePower, int _WheelNum);
-    public: std::string getName() const;
+    public: virtual std::string getName() const;
     public: int getHorsePower() const;
     public: int getWheelNum() const;
     public: virtual void setName(std::string Name);

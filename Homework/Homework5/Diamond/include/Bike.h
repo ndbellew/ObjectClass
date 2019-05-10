@@ -15,7 +15,7 @@ namespace vehicle{
     public: bool IsBrakeInUse() const;
     public: virtual std::string getName() const;
     public: bool isKickstandUp() const;
-    public: void setName(std::string _Name);
+    public: virtual void setName(std::string _Name);
     public: void ToggleBrake();
     public: void ToggleKickstand();
     public: void Drive() const;
