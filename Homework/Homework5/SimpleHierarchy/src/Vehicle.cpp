@@ -3,19 +3,25 @@
 
 namespace vehicle{
 
-  Vehicle::Vehicle(Color _Color,)
-  : Color(_Color)
+  Vehicle::Vehicle(Color _Color, std::string _Name)
+  : color(_Color), Name(_Name)
   {
     std::cout << "created Vehicle with color of "<< color <<std::endl;
   }
   Color Vehicle::getColor() const{
-    return Color;
+    return color;
+  }
+  std::string Vehicle::getName() const{
+    return Name;
   }
   void Vehicle::setColor(Color _Color){
-    Color = _Color;
+    color = _Color;
   }
-  void Vehicle::Drive(){
-    std::cout<<"Vehicle is being Driven.\n"
+  void Vehicle::setName(std::string _Name){
+    Name = _Name;
+  }
+  void Vehicle::Drive() const{
+    std::cout<<"Vehicle is being Driven.\n";
   }
 
   Vehicle::~Vehicle(){
