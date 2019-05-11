@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 namespace door{
   enum Material {
@@ -9,4 +10,6 @@ namespace door{
     SPRUCE,
     ACACIA
   };
+
+  std::ostream& operator<<(std::ostream &out, const Material &material);
 }

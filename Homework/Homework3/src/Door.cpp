@@ -1,53 +1,67 @@
 #include <iostream>
-#include "Door.h"
+#include "../include/Door.h"
 namespace door{
 
-    Door::Door(Material _material, Height _height, Width _width)
-      : material(_material), open(true), locked(false), height(_height), width(width)
+    Door::Door(Material _material, double _Height, double _Width, bool _Open, bool _Locked)
+      : material(_material), Open(_Open), Locked(_Locked), Height(_Height), Width(_Width)
       {
+        std::cout<<"Door created with a nice "<<_material<<" material\n";
       }
 
-      Material Door::getMaterial() const {
+      Material Door::getmaterial() const {
         return material;
       }
 
-      Height Door::getHeight() const {
-        return height;
+      double Door::getHeight() const {
+        return Height;
       }
 
-      Width Door::getWidth() const {
-        return width;
+      double Door::getWidth() const {
+        return Width;
       }
 
       bool Door::isOpen() const {
-        return open;
+        return Open;
       }
+
 
       bool Door::isLocked() const {
-        return locked;
+        return Locked;
       }
 
-      void Door::setOpen(bool _open) {
-        open = _open;
+      void Door::setmaterial(Material _material){
+        material = _material;
       }
 
-      void Door::setLocked(bool _locked) {
-        locked = _locked;
+      void Door::setOpen(bool _Open) {
+        Open = _Open;
       }
 
-      void Door::Secure() const {
+      void Door::setLocked(bool _Locked) {
+        Locked = _Locked;
+      }
+
+      void Door::setHeight(double _Height){
+        Height = _Height;
+      }
+
+      void Door::setWidth(double _Width){
+        Width = _Width;
+      }
+
+      void Door::Secure() {
         if(!isOpen()){ //Door started closed
-          if(isLocked()){ //Door is locked and closed.
+          if(isLocked()){ //Door is Locked and closed.
             throw ALREADY_SECURED;
-          }else{ // Door is closed but unlocked.
+          }else{ // Door is closed but unLocked.
             setLocked(true);
             std::cout<<"Door has been Secured"<<std::endl;
           }
         }else{ //door Started Open
           if(isLocked()){
-            throw CANNOT_CLOSE_LOCKED_DOOR
+            throw CANNOT_CLOSE_LOCKED_DOOR;
           }
-          else{ // Door is open and locked.
+          else{ // Door is Open and Locked.
             setOpen(false);
             std::cout << "Door has been closed\n";
             setLocked(true);
@@ -61,6 +75,6 @@ namespace door{
       }
 
       const BadDoorState Door::ALREADY_SECURED("Door cannot be more secured than it is now!");
-      const BadDoorState Door::CANNOT_CLOSE_LOCKED_DOOR("Door is currently locked while being open.\n please unlock door before we can secure it.");
+      const BadDoorState Door::CANNOT_CLOSE_LOCKED_DOOR("Door is currently Locked while being Open.\n please unlock door before we can secure it.");
 
 }
