@@ -3,7 +3,7 @@
 
 namespace door {
   std::ostream& operator<<(std::ostream &out, const Material &material){
-    switch (Color) {
+    switch (material) {
       case OAK: out << "Oak"; break;
       case IRON: out << "Iron"; break;
       case BIRCH: out << "Birch"; break;

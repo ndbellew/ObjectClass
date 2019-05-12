@@ -1,7 +1,8 @@
 #pragma once
-
+#include <memory>
 #include "Material.h"
 #include "BadDoorState.h"
+
 
 namespace door{
 
@@ -11,7 +12,7 @@ namespace door{
     private: double Width;
     private: bool Open;
     private: bool Locked;
-    public: Door(Material _material, double _Height, double _Width, bool _Open = true, bool _Locked=true);
+    public: Door(Material _material, double _Height, double _Width, bool _Open = false, bool _Locked=true);
     public: Material getmaterial() const;
     public: double getHeight() const;
     public: double getWidth() const;
@@ -23,6 +24,7 @@ namespace door{
     public: void setHeight(double _Height);
     public: void setWidth(double _Width);
     public: void Secure();
+    public: std::shared_ptr<Door> clone() const;
     public: ~Door();
     public: static const BadDoorState ALREADY_SECURED;
     public: static const BadDoorState CANNOT_CLOSE_LOCKED_DOOR;

@@ -1,4 +1,6 @@
 # Javascript
 ## Homework 4
 
-> This project was assigned with the hopes of creating a hierarchy of classes within a scripting language, specifically JavaScript. 
+> Simple object made from C++ called door that just explores all the fun there is to being a door. You get to choose the Material, or if its open, or maybe its locked.
+
+![Successful Tests](SuccessfulTest.png)

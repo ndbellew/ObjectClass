@@ -49,6 +49,10 @@ namespace door{
         Width = _Width;
       }
 
+      std::shared_ptr<Door> Door::clone() const{
+        Door *copy = new Door(getmaterial(), getHeight(), getWidth(), isOpen(), isLocked());
+        return std::shared_ptr<Door>(copy);
+      }
       void Door::Secure() {
         if(!isOpen()){ //Door started closed
           if(isLocked()){ //Door is Locked and closed.
@@ -71,7 +75,7 @@ namespace door{
       }
 
       Door::~Door() {
-        std::cout <<"Destructing Door" << ((void*) this) <<std::endl;
+        std::cout <<"Destructing Door at " << ((void*) this) <<std::endl;
       }
 
       const BadDoorState Door::ALREADY_SECURED("Door cannot be more secured than it is now!");
