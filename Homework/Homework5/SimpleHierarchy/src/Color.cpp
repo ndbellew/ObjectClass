@@ -1,8 +1,8 @@
 #include "Color.h"
 
 namespace vehicle {
-  std::ostream& operator<<(std::ostream &out, const Color &Color){
-    switch (Color) {
+  std::ostream& operator<<(std::ostream &out, const Color &color){
+    switch (color) {
       case BLACK: out << "Black"; break;
       case GREEN: out << "GREEN"; break;
       case RED: out << "RED"; break;
