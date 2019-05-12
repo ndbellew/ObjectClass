@@ -15,24 +15,12 @@ namespace vehicle {
     return KickstandUp;
   }
 
-  void Bike::ToggleBrake(){
-    if (Brake){
-      std::cout<<"Brake is no longer in use.\n";
-      Brake = false;
-    }else{
-      std::cout<<"Brake is now being used\n.";
-      Brake = true;
-    }
+  void Bike::setBrake(bool _Brake){
+    Brake = _Brake;
   }
 
-    void Bike::ToggleKickstand(){
-      if (KickstandUp){
-        std::cout<<"Brake is no longer in use.\n";
-        Brake = false;
-      }else{
-        std::cout<<"Brake is now being used\n.";
-        Brake = true;
-      }
+    void Bike::setKickstand(bool _Kickstand){
+      KickstandUp = _Kickstand;
     }
 
 

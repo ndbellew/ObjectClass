@@ -2,14 +2,33 @@
 #include <iomanip>
 #include <memory>
 #include <string>
+#include <assert.h>
 #include "../include/Bike.h"
 #include "../include/Carriage.h"
+#include "../include/Factory.h"
 
 using namespace vehicle;
 
 int main(){
-  Bike* bike = new Bike("Schwin", BLUE, true, false);
-  Carriage *carriage = new Carriage("That Carraige that the bank uses as a mascot", RED, 2, 300);
-  Vehicle *vehicle = new Vehicle(BLACK);
+  Vehicle *V = new Vehicle;
+  Factory *f= new Factory;
+  Bike *B = f->CreateVehicle("Bike");
+  V->setName("Boberto");
+  assert(V->getName() == "Boberto");
+  assert(V->isKickstandUp());
+  //V->isKickstandup();
+  //B->setKickstand(false);
+  //assert(B->isKickstandUp() == false);
+  //std::cout<<"Kickstand Change successful"<<std::endl;
+  //B->setBrake(false);
+  //assert(B->IsBrakeInUse() == false);
+  //std::cout<<"Kickstand Change successful"<<std::endl;
+  //B->setColor(TURQOISE);
+  //assert(B->getColor() == TURQOISE);
+  //std::cout<<"Kickstand Change successful"<<std::endl;
+
+  V->Drive();
+  //V = f->CreateVehicle("Carriage")
+  //V->Drive();
   return 0;
 }

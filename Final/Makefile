@@ -14,10 +14,13 @@ tmp/Bike.o: src/Bike.cpp include/Vehicle.h include/Bike.h include/Color.h
 tmp/Carriage.o: src/Carriage.cpp include/Vehicle.h include/Carriage.h include/Color.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-lib/libvehicle.so : tmp/Carriage.o tmp/Bike.o tmp/Vehicle.o tmp/Color.o
+tmp/Factory.o: src/Factory.cpp include/Factory.h include/Carriage.h include/Bike.h include/Vehicle.h include/Color.h
+				$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+lib/libvehicle.so : tmp/Carriage.o tmp/Bike.o tmp/Vehicle.o tmp/Color.o tmp/Factory.o
 				$(CXX) $(CXXFLAGS) -shared -o $@ $^
 
-tmp/main.o : src/main.cpp include/Vehicle.h include/Bike.h include/Carriage.h include/Color.h
+tmp/main.o : src/main.cpp include/Vehicle.h include/Bike.h include/Carriage.h include/Color.h include/Factory.h
 				$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 bin/vehicle : tmp/main.o lib/libvehicle.so
