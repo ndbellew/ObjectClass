@@ -1,5 +1,8 @@
+#!/usr/bin/python3
 from __future__ import print_function
 from abc import ABCMeta, abstractmethod
+import test
+
 
 class ComputerSystem(metaclass=ABCMeta):
 
@@ -14,8 +17,17 @@ class Logger(ComputerSystem):
         self.text=text
         self.source=source
 
+    def setTitle(self, title):
+        self.title=title
+
+    def setText(self, text):
+        self.text = text
+
+    def setSource(self, source):
+        self.source = source
+
     def Log(self):
-        return ("Text "+self.title+" Is now logged")
+        return ("The process "+self.title+" is now logged")
 
     def run(self):
         return "Logger is now running"
@@ -25,13 +37,12 @@ class EmailLogger(Logger):
         self.email = email
         Logger.__init__(self,title, text, source)
 
-
     def run(self):
-        return ("Text "+str(self.title)+" from "+self.email+ " Is now logged")
+        return ("Text "+self.title+" from "+self.email+ " Is now logged")
 
 class ProcessManager(ComputerSystem):
-    def __init__(self, process, name):
-        self.process = process
+    def __init__(self, desc, name):
+        self.desc = desc
         self.name = name
 
     def run(self):
@@ -55,18 +66,48 @@ class FactoryPM(SystemFactory):
     def create(self):
         return ProcessManager("Process", "Name")
 
+class User:
+    def __init__(self):
+        f = FactoryLog()
+        self.UserLogger = f.create()
+        f = FactoryEL()
+        self.UserEmailLogger = f.create()
+        f = FactoryPM()
+        self.UserProcessManager = f.create()
+
+    def ComposeEmail(self):
+        self.UserEmailLogger.title = input("Please input title\n")
+        self.UserEmailLogger.text = input("What is your email?\n")
+        self.UserEmailLogger.source = input("What the email to be sent from?\n")
+        self.UserEmailLogger.email = input("What email is it going to?\n")
+        self.RunProcess("Email")
+
+    def RunProcess(self, name):
+        self.UserProcessManager.name = name
+        if self.UserProcessManager.name == "Email":
+            self.UserProcessManager.desc = ("Email sent from "+self.UserEmailLogger.source +" going to "+self.UserEmailLogger.email+".")
+        self.UserProcessManager.run()
+        self.Log(name, self.UserProcessManager.desc, "Process")
+        self.SendEmail()
+
+    def Log(self, title, text, source):
+        print (self.UserLogger.run())
+        self.UserLogger.title = title
+        self.UserLogger.text = text
+        self.UserLogger.source = source
+        print( self.UserLogger.Log())
+
+
+
+    def SendEmail(self):
+        print(self.UserEmailLogger.run())
+
 
 
 def main():
-    factory = FactoryLog()
-    FakeLog = factory.create()
-    factory = FactoryEL()
-    FakeEL = factory.create()
-    factory = FactoryPM()
-    FakePM = factory.create()
-    print(FakeLog.Log())
-    print(FakeEL.run())
-    print(FakePM.run())
+    U = User()
+    U.ComposeEmail()
+
 
 if __name__ == "__main__":
     main()
