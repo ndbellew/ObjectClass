@@ -3,6 +3,7 @@ from __future__ import print_function
 from abc import ABCMeta, abstractmethod
 import test
 
+FacFail = "Factory Failed"
 
 class ComputerSystem(metaclass=ABCMeta):
 
@@ -70,20 +71,38 @@ class User:
     def __init__(self):
         f = FactoryLog()
         self.UserLogger = f.create()
+        assert(self.UserLogger.title == "Title"), FacFail
+        assert(self.UserLogger.text == "Text"), FacFail
+        assert(self.UserLogger.source == "Source"), FacFail
         f = FactoryEL()
         self.UserEmailLogger = f.create()
+        assert(self.UserLogger.title == "Title"), FacFail
+        assert(self.UserLogger.text == "Text"), FacFail
+        assert(self.UserEmailLogger.source == "Source"), FacFail
+        assert(self.UserEmailLogger.email == "email@email.com"), FacFail
         f = FactoryPM()
         self.UserProcessManager = f.create()
+        assert(self.UserProcessManager.desc == "Process"), FacFail
+        assert(self.UserProcessManager.name =="Name"), FacFail
 
     def ComposeEmail(self):
-        self.UserEmailLogger.title = input("Please input title\n")
-        self.UserEmailLogger.text = input("What is your email?\n")
-        self.UserEmailLogger.source = input("What the email to be sent from?\n")
-        self.UserEmailLogger.email = input("What email is it going to?\n")
+        title = input("Please input title\n")
+        text = input("What is your email?\n")
+        source =  input("What the email to be sent from?\n")
+        email = input("What email is it going to?\n")
+        if title != "":
+            self.UserEmailLogger.title = title
+        if text !="":
+            self.UserEmailLogger.text = text
+        if source != "":
+            self.UserEmailLogger.source = source
+        if email != "":
+            self.UserEmailLogger.email = email
         self.RunProcess("Email")
 
     def RunProcess(self, name):
-        self.UserProcessManager.name = name
+        if name != "":
+            self.UserProcessManager.name = name
         if self.UserProcessManager.name == "Email":
             self.UserProcessManager.desc = ("Email sent from "+self.UserEmailLogger.source +" going to "+self.UserEmailLogger.email+".")
         self.UserProcessManager.run()
@@ -92,9 +111,12 @@ class User:
 
     def Log(self, title, text, source):
         print (self.UserLogger.run())
-        self.UserLogger.title = title
-        self.UserLogger.text = text
-        self.UserLogger.source = source
+        if title != "":
+            self.UserLogger.title = title
+        if text != "":
+            self.UserLogger.text = text
+        if source != "":
+            self.UserLogger.source = source
         print( self.UserLogger.Log())
 
 
