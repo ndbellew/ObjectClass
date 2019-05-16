@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from __future__ import print_function
 from abc import ABCMeta, abstractmethod
-import test
 
 FacFail = "Factory Failed"
 
@@ -119,12 +118,8 @@ class User:
             self.UserLogger.source = source
         print( self.UserLogger.Log())
 
-
-
     def SendEmail(self):
         print(self.UserEmailLogger.run())
-
-
 
 def main():
     U = User()
