@@ -5,3 +5,5 @@ My first attempt at this was to go off of examples taught in class and use the f
 
 ## Python Abstract Factory
 Python was simple and fast, what took 14+ pages of code in C++ i was able to create in less than 80 lines of code, in Python. The work was quick and because of the amount of work C++ required, I was a near expert on the pattern. And so the main.py is what i have to show for the abstract factory pattern.
+
+![positive tests](Works.png)
